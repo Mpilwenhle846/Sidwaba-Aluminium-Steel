@@ -215,7 +215,7 @@
 
         /* Hero Section */
         .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.postimg.cc/fTN06bYg/homepg-Photoroom.png');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.postimg.cc/gjLrbVNG/josh-beech-t-XJh-AFVOHVk-unsplash.jpg');
             background-size: cover;
             background-position: center;
             color: var(--primary);
@@ -556,7 +556,7 @@
             font-weight: 500;
         }
 
-        /* Video Gallery Section */
+        /* Video Gallery Section - Modified for brown play button */
         .video-gallery-section {
             background-color: var(--light-gray);
             padding: 80px 0;
@@ -615,6 +615,7 @@
             position: relative;
             padding-top: 56.25%; /* 16:9 aspect ratio */
             overflow: hidden;
+            cursor: pointer;
         }
 
         .video-thumbnail {
@@ -633,19 +634,43 @@
             transform: translate(-50%, -50%);
             width: 60px;
             height: 60px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: var(--accent); /* Changed to brown */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent);
+            color: white; /* Changed to white */
             font-size: 24px;
-            opacity: 0;
             transition: all 0.3s;
             cursor: pointer;
+            z-index: 2;
+            opacity: 0.9;
+        }
+
+        .play-button:hover {
+            background-color: var(--dark-accent); /* Darker brown on hover */
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
         }
 
         .video-card:hover .play-button {
+            opacity: 1;
+        }
+        
+        /* Add overlay for better contrast */
+        .video-thumbnail-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            opacity: 0;
+        }
+        
+        .video-thumbnail-container:hover::after {
             opacity: 1;
         }
 
@@ -681,6 +706,7 @@
             background-image: url('data:image/svg+tp://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23f0f0f0"/><path d="M0,0 L200,200 M200,0 L0,200" stroke="%23e0e0e0" stroke-width="1"/></svg>');
             opacity: 0.3;
             z-index: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23f0f0f0"/><path d="M0,0 L200,200 M200,0 L0,200" stroke="%23e0e0e0" stroke-width="1"/></svg>');
         }
 
         .about-content {
@@ -720,6 +746,7 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin-top: 40px;
+            margin-bottom: 40px;
         }
 
         .stat-item {
@@ -810,7 +837,7 @@
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
-            border-color: var(--accent);
+            border-color: var(--accept);
             outline: none;
             box-shadow: 0 0 0 3px rgba(121, 85, 72, 0.1);
         }
@@ -831,7 +858,7 @@
 
         .form-status.success {
             background-color: #d4edda;
-            color: 155724;
+            color: #155724;
             display: block;
         }
 
@@ -995,81 +1022,81 @@
                 position: absolute;
                 top: 100%;
                 left: 0;
-                width: 100%;
-                background-color: var(--primary);
-                flex-direction: column;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0;
-                text-align: center;
-            }
-            
-            nav ul li a {
-                display: block;
-                padding: 15px 0;
-            }
-            
-            .hero {
-                padding: 100px 0;
-            }
-            
-            .hero h1 {
-                font-size: 32px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .btn {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-            
-            .section-title h2 {
-                font-size: 28px;
-            }
-
-            .btn-container {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .btn-outline {
-                margin-left: 0;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
+            width: 100%;
+            background-color: var(--primary);
+            flex-direction: column;
+            padding: 20px 0;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav ul.show {
+            display: flex;
+        }
+        
+        nav ul li {
+            margin: 0;
+            text-align: center;
+        }
+        
+        nav ul li a {
+            display: block;
+            padding: 15px 0;
+        }
+        
+        .hero {
+            padding: 100px 0;
+        }
+        
+        .hero h1 {
+            font-size: 32px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+        
+        .section-title h2 {
+            font-size: 28px;
         }
 
-        @media (max-width: 576px) {
-            .hero {
-                padding: 80px 0;
-            }
-            
-            .hero h1 {
-                font-size: 28px;
-            }
-            
-            .hero p {
-                font-size: 16px;
-            }
-            
-            .product-price {
-                font-size: 18px;
-            }
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
-    </style>
+        
+        .btn-outline {
+            margin-left: 0;
+        }
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .hero {
+            padding: 80px 0;
+        }
+        
+        .hero h1 {
+            font-size: 28px;
+        }
+        
+        .hero p {
+            font-size: 16px;
+        }
+        
+        .product-price {
+            font-size: 18px;
+        }
+    }
+</style>
 </head>
 <body>
     <!-- Header -->
@@ -1088,11 +1115,11 @@
         </button>
         <nav>
             <ul id="navMenu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="projects.html">Our Projects</a></li>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#projects">Our Projects</a></li>
                 <li><a href="#products">Products</a></li>
-                <li><a href="videos.html">Videos</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -1100,9 +1127,9 @@
 </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home" style="margin-bottom: 20px;">
+    <section class="hero" id="home">
         <div class="container hero-content">
-            <h1><strong>Afforable </strong>High-quality, Trusted aluminium & steel services</h1>
+            <h1><strong>Our Trusted</strong> Aluminium & Steel services</h1>
             <p>Expert fabrication and installation services for residential, commercial, and industrial applications</p>
             <div class="btn-container">
                 <a href="#products" class="btn">Our Products</a>
@@ -1111,58 +1138,157 @@
         </div>
     </section>
 
-<!-- Projects Section -->
-<section id="projects" class="projects">
-    <div class="container">
-        <div class="section-title">
-            <h2>Our Projects</h2>
-            <p>Explore our portfolio of completed aluminium and steel projects</p>
-        </div>
-        
-        <div class="project-filters">
-            <button class="filter-btn active" data-filter="all">All Projects</button>
-            <button class="filter-btn" data-filter="residential">Residential</button>
-            <button class="filter-btn" data-filter="commercial">Commercial</button>
-        </div>
-        
-        <div class="projects-collage">
-            <div class="collage-item large">
-                <img src="https://i.postimg.cc/zfWDkC3t/mansion.jpg" alt="Modern Residential Windows">
-                <div class="collage-content">
-                    <span class="project-category">Residential</span>
-                    <h3>Modern Double Story</h3>
-                    <p>Installed energy-efficient aluminium windows for a luxury Double Story in Kwa-Zulu-Natal.</p>
-                </div>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Projects</h2>
+                <p>Explore our portfolio of completed aluminium and steel projects</p>
             </div>
             
-            <div class="collage-item medium">
-                <img src="https://i.postimg.cc/MHYvmy32/doublegarageproject-2.jpg" alt="Double garage">
-                <div class="collage-content">
-                    <span class="project-category">Residential</span>
-                    <h3>Double Garage (automated)</h3>
-                </div>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                
             </div>
+            
+            <div class="projects-grid">
+                <div class="project-card" data-category="residential">
+                    <img src="https://i.postimg.cc/zfWDkC3t/mansion.jpg" alt="Modern Residential Windows" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Residential</span>
+                        <h3>Modern Double Story</h3>
+                        <p>Installed energy-efficient aluminium windows for a luxury Double Story in Kwa-Zulu-Natal.</p>
+                    </div>
+                </div>
+                
+<div class="project-card" data-category="residential">
+                    <img src="https://i.postimg.cc/MHYvmy32/doublegarageproject-2.jpg" alt="Double garage" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Residential</span>
+                        <h3>Double Garage (automated)</h3>
+                        <p>An image of our energy-efficient double garage(automated) door.</p>
+                    </div>
+                </div>
 
-            <div class="collage-item medium with-button">
-                <img src="https://i.postimg.cc/rmBSPC9D/gymoverview.jpg" alt="Gym Building">
-                <div class="collage-content">
-                    <span class="project-category">Commercial</span>
-                    <h3>Gym Building</h3>
-                    <a href="#" class="btn collage-btn">View Our Projects</a>
+                <div class="project-card" data-category="commercial">
+                    <img src="https://i.postimg.cc/rmBSPC9D/gymoverview.jpg" alt="Gym Building" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Commercial</span>
+                        <h3>Gym Building</h3>
+                        <p>Designed and installed a custom aluminium and glass facade for a gym in Burgville KZN.</p>
+                    </div>
+                </div>
+                
+<div class="project-card" data-category="residential">
+                    <img src="https://i.postimg.cc/fW1HGYbj/singlegarageproject.jpg" alt="Singlegarage" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Residential</span>
+                        <h3>Single Garage Doors</h3>
+                        <p>Designed and installed High-quality single garage doors.</p>
+                    </div>
+                </div>
+
+                 <div class="project-card" data-category="commercial">
+                    <img src="https://i.postimg.cc/fy1Y17j3/bathroomsingledoor.jpg" alt="Single Door" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Commercial</span>
+                        <h3>singledoors</h3>
+                        <p>Designed and installed budget freindly single doors.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="commercial">
+                    <img src="https://i.postimg.cc/2j0c2gsJ/resturant.jpg" alt="Resturant" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Commercial</span>
+                        <h3>Luxury Resturant</h3>
+                        <p>Designed and installed luxry aluminium glass for a fancy resturant.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="residential">
+                    <img src="https://i.postimg.cc/66Vwq6GZ/projectsectiondoublegarage.jpg" alt="Residential Garage" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Residential</span>
+                        <h3>Automated Garage Solutions</h3>
+                        <p>Installed visually pleasing automated double garage for a Modern home.</p>
+                    </div>  
+                </div>
+                <div class="project-card" data-category="residential">
+                    <img src="https://i.postimg.cc/W4NVYhqt/apartemnt.jpg" alt="Residential Garage" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Residential</span>
+                        <h3>Apartment Complex</h3>
+                        <p>Installed energy-efficient windows for apartments</p>
+                    </div>
+             </div>
+            
+        </div>
+    </section>
+ <!-- Video Gallery Section - Modified with custom thumbnails -->
+    <section id="videos" class="video-gallery-section">
+        <div class="video-gallery-container">
+            <div class="video-gallery-title">
+                <h2>Featured Videos</h2>
+                <p>See our work through these demonstration videos</p>
+            </div>
+            
+            <div class="video-gallery-grid">
+                <!-- Video 1 - Custom thumbnail with brown play button -->
+                <div class="video-card">
+                    <div class="video-thumbnail-container" data-video-id="cnp3WCCYdvE">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/cnp3WCCYdvE/maxresdefault.jpg" alt="Security door installation" onerror="this.src='https://img.youtube.com/vi/cnp3WCCYdvE/hqdefault.jpg'">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Security door</h3>
+                        <p>See how we professionally installed aluminium security doors.</p>
+                    </div>
+                </div>
+                
+                <!-- Video 2 - Fixed thumbnail with fallback -->
+                <div class="video-card">
+                    <div class="video-thumbnail-container" data-video-id="fD95Kd17JVw">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/fD95Kd17JVw/hqdefault.jpg" alt="Aluminium sliding doors">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>High-quality aluminium sliding doors</h3>
+                        <p><small><strong>A video of our team showing off our premium folding doors.</strong></small></p>
+                    </div>
+                </div>
+                
+                <!-- Video 3 - Custom thumbnail with brown play button -->
+                <div class="video-card">
+                    <div class="video-thumbnail-container" data-video-id="C6VaR8TcN2w">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/C6VaR8TcN2w/maxresdefault.jpg" alt="Garage door fabrication" onerror="this.src='https://img.youtube.com/vi/C6VaR8TcN2w/hqdefault.jpg'">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Garage door Fabrication</h3>
+                        <p>Behind-the-scenes look at how we fabricate commercial garage door.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-   
-    <!-- Products Section with Enhanced Wind ows Card -->
+    </section>
+
+    <!-- Products Section with Enhanced Windows Card -->
     <section id="products" class="products">
         <div class="container">
             <div class="section-title">
                 <h2>Our Products</h2>
                 <p>Premium quality aluminium and steel products at competitive prices</p>
             </div>
-            
+            </div>
             <div class="products-grid">
                 <!-- Standard Door -->
                 <div class="product-card">
@@ -1312,7 +1438,42 @@
                 </div>
             </div>
         </div>
-       
+        <div class = "team-block">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="team-title">Meet Our Team</h2>
+                    <p style="margin-top: 20px;">We are a dedicated team of professionals committed to delivering the best aluminium and steel solutions.</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://i.postimg.cc/Yq0nhwqg/vukani.jpg" alt="Team Member 1" class="team-photo">
+                        <p class="employee-description">A dedicated and hardworking professional, Vukani brings enthusiasm and teamwork to every project. Always ready to collaborate, they help keep things running smoothly.</p>
+                        <h3>Vukani Mtshali</h3>
+                        <p>Director</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://i.postimg.cc/3Jr5GbqS/asande.jpg" alt="Team Member 2" class="team-photo">
+                        <p class="employee-description">Asande is a skilled technician with expertise in aluminium fabrication. His attention to detail ensures that every product meets our high quality standards.</p>
+                        <h3>Asande Mtshali</h3>
+                        <p>Fabrication Specialist</p>
+                    </div>
+                     <div class="team-member">
+                        <img src="https://i.postimg.cc/3Jt3LD0Z/nonkonzo.jpg" alt="Team Member 2" class="team-photo">
+                        <p class="employee-description">Nonkonzo manages our administrative operations with efficiency and professionalism. She ensures smooth communication between our team and clients.</p>
+                        <h3>Nonkonzo</h3>
+                        <p>Admin Officer</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://i.postimg.cc/pX7YjCgJ/laptop.jpg" alt="Team Member 3" class="team-photo">
+                        <p class="employee-description">Mpilwenhle provides technical support and manages our digital systems. He ensures our operations run smoothly with modern technology solutions.</p>
+                        <h3>Mpilwenhle Mathenjwa</h3>
+                        <p>IT Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -1552,7 +1713,27 @@
                 });
             });
 
-            // Remove video play functionality since we're using iframes now
+            // Video play functionality with custom brown button
+            document.querySelectorAll('.video-thumbnail-container').forEach(container => {
+                container.addEventListener('click', function() {
+                    const videoId = this.getAttribute('data-video-id');
+                    const iframe = document.createElement('iframe');
+                    
+                    iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`);
+                    iframe.setAttribute('frameborder', '0');
+                    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                    iframe.setAttribute('allowfullscreen', '');
+                    iframe.classList.add('video-thumbnail');
+                    iframe.style.position = 'absolute';
+                    iframe.style.top = '0';
+                    iframe.style.left = '0';
+                    iframe.style.width = '100%';
+                    iframe.style.height = '100%';
+                    
+                    this.innerHTML = '';
+                    this.appendChild(iframe);
+                });
+            });
         });
     </script>
 </body>
